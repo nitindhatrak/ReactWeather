@@ -2,10 +2,11 @@ var express = require('express');
 
 //create app
 var app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.use(function(req, res, next){
 	if(req.headers['x-forwarded-proto'] === 'https'){
+		conslole.log('http://'+req.hostname + req.url);
 		res.redirect('http://'+req.hostname + req.url);
 	}
 	else{
